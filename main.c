@@ -150,6 +150,7 @@ int	main(int argc, char **argv)
 		print_grid(g_grid, get_size(sudoku));
 		write(1, "done!\n", 6);
 		close(fd);
+		free(g_grid);
 	}
 	return (0);
 }
