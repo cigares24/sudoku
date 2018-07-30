@@ -126,12 +126,10 @@ int	main(int argc, char **argv)
 	char	*sudoku;
 	int	fd;
 	int	verif;
-	int	pos;
 
 	if (argc == 1)
 		return (0);
 	n = 0;
-	pos = 0;
 	while (argv[++n])
 	{
 		len = read_file(argv[n]);
@@ -148,7 +146,7 @@ int	main(int argc, char **argv)
 		if ((g_grid = (int**)malloc((get_size(sudoku) + 1) * sizeof(int*))) <= 0)
 			return (0);
 		grid_convert(sudoku);
-		verif = sudo_resolve(g_grid, get_size(sudoku), pos);
+		verif = sudo_resolve(g_grid, get_size(sudoku), 0);
 		print_grid(g_grid, get_size(sudoku));
 		write(1, "done!\n", 6);
 		close(fd);
